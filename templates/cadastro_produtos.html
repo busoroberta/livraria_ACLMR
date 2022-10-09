@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+
+    <div class="container">
+        <h1>Cadastro de Produtos</h1><br>
+    </div>
+    <form action="{{ url_for('add_data')}}" method="post">
+    <div class="container">
+        <fieldset>
+            <div>
+                <label>Nome do Livro:</label>
+                <input class="form-control" type="text" name="nome" id="nome">
+            </div><br>
+            <div>
+                <label>Autor:</label>
+                <input class="form-control" type="text" name="autor" id="autor">
+            </div><br>
+            <div>
+                <label>Editora:</label>
+                <input class="form-control" type="text" name="editora" id="editora">
+            </div><br>
+            <div>
+                <label>Preço para Venda:</label>
+                <input class="form-control" type="float" name="preco" id="preco">
+            </div><br>
+            <div>
+                <label>Quantidade:</label>
+                <input class="form-control" type="int" name="quantidade" id="quantidade">
+            </div><br>
+            <div>
+                <input type="submit" value="Enviar">
+            </div>
+        </fieldset>
+    </div>
+    </form>
+
+{% endblock content %}

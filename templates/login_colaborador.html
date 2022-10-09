@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h2 class="txt_centro">Colaborador, faça seu login</h2>
+
+    <form action="{{url_for('autenticar_colaborador')}}" method="POST">
+        <input type="hidden" name="proxima" value="{{ proxima }}">
+        <p><label>Usuário: </label><input class=form-control type="text" name="usuario" placeholder="Usuário"required></p>
+        <p><label>Senha: </label><input class=form-control type="password" name="senha" placeholder="Senha"required></p>
+        <p><button class="btn btn-primary" type="submit">Entrar</button></p>
+
+    </form>
+
+</div>
+
+
+{% endblock %}

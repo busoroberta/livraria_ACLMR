@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+
+    <div class="container">
+        <h1>Alterar Cadastro Cliente</h1><br>
+    </div>
+
+    <form action="{{ url_for('altera_cliente', id=[0])}}" method="POST">
+    <div class="container">
+        <fieldset>
+
+           <div>
+                <label>Nome:</label>
+                <input class="form-control" type="text" name="nome" value="{{clientes[1]}}">
+            </div><br>
+            <div>
+                <label>CPF:</label>
+                <input class="form-control" type="int" name="cpf" value="{{clientes[2]}}">
+            </div><br>
+            <div>
+                <label>E-mail:</label>
+                <input class="form-control" type="text" name="email" value="{{clientes[3]}}">
+            </div><br>
+            <div>
+                <label>Endereço:</label>
+                <input class="form-control" type="text" name="endereco" value="{{clientes[4]}}">
+            </div><br>
+            <div>
+                <label>Telefone:</label>
+                <input class="form-control" type="int" name="telefone" value="{{clientes[5]}}">
+            </div><br>
+            <div>
+                <input type="submit" value="Atualizar">
+            </div>
+        </fieldset>
+    </div>
+    </form>
+
+
+{% endblock content %}

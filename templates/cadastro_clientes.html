@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+
+    <div class="container">
+        <h1>Cadastro de Clientes</h1><br>
+    </div>
+    <form action="{{ url_for('add_cliente')}}" method="post">
+    <div class="container">
+        <fieldset>
+            <div>
+                <label>Nome:</label>
+                <input class="form-control" type="text" name="nome" id="nome">
+            </div><br>
+            <div>
+                <label>CPF:</label>
+                <input class="form-control" type="int" name="cpf" id="cpf">
+            </div><br>
+            <div>
+                <label>E-mail:</label>
+                <input class="form-control" type="text" name="email" id="email">
+            </div><br>
+            <div>
+                <label>Endereço:</label>
+                <input class="form-control" type="text" name="endereco" id="endereco">
+            </div><br>
+            <div>
+                <label>Telefone:</label>
+                <input class="form-control" type="int" name="telefone" id="telefone">
+            </div><br>
+            <div>
+                <input type="submit" value="Cadastrar">
+            </div>
+        </fieldset>
+    </div>
+    </form>
+
+{% endblock content %}

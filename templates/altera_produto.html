@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="../static/css/bootstrap.css">
+
+    <div class="container">
+        <h1>Atualizar Produto</h1><br>
+    </div>
+
+    <form action="{{ url_for('altera_produto', id=[0])}}" method="POST">
+    <div class="container">
+        <fieldset>
+
+           <div>
+                <label>Nome do Livro:</label>
+                <input class="form-control" type="text" name="nome" value="{{resultado[1]}}">
+            </div><br>
+            <div>
+                <label>Autor:</label>
+                <input class="form-control" type="text" name="autor" value="{{resultado[2]}}">
+            </div><br>
+            <div>
+                <label>Editora:</label>
+                <input class="form-control" type="text" name="editora" value="{{resultado[3]}}">
+            </div><br>
+            <div>
+                <label>Preço para Venda:</label>
+                <input class="form-control" type="decimal" name="preco" value="{{resultado[4]}}">
+            </div><br>
+            <div>
+                <label>Quantidade:</label>
+                <input class="form-control" type="int" name="quantidade" value="{{resultado[5]}}">
+            </div><br>
+            <div>
+                <input type="submit" value="Atualizar">
+            </div>
+        </fieldset>
+    </div>
+    </form>
+
+
+{% endblock content %}

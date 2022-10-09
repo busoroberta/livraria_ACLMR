@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="{{url_for('consulta_estoque_parcial')}}" method="POST">
+<div class="container">
+    <p><label><h3>Encontre o livro que deseja: </h3></label><input class=form-control type="text" name="parametro"
+                                                          placeholder="Digite id, nome do livro, autor ou editora"
+                                                          required></p>
+    <p><button class="btn btn-primary" type="submit">Pesquisar</button></p>
+</form>
+
+{% if parametro in estoque %}
+    <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <td>id</td>
+                    <td>Nome</td>
+                    <td>Autor</td>
+                    <td>Editora</td>
+                    <td>Preço</td>
+                    <td>Quantidade</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr>
+                        <td>{{ e[0] }}</td>
+                        <td>{{ e[1] }}</td>
+                        <td>{{ e[2] }}</td>
+                        <td>{{ e[3] }}</td>
+                        <td>{{ e[4] }}</td>
+                        <td>{{ e[5] }}</td>
+
+                    </tr>
+{% endif %}
+            </tbody>
+    </table>
+</div>
+
+
+
+
+{% endblock %}

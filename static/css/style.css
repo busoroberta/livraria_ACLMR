@@ -1,0 +1,11 @@
+#img_centro{
+            display: flex;
+            justify-content: center;
+}
+.txt_centro{
+            text-align: center;
+}
+
+.txt_white{
+            color: white;
+}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 style="text-align:center"> Estoque Total </h1>
+
+<div class="container">
+
+    <a href="{{ url_for('cadastro_produtos')}}" class="btn btn-primary">Incluir</a><br><br>
+
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <td>id</td>
+                    <td>Nome</td>
+                    <td>Autor</td>
+                    <td>Editora</td>
+                    <td>Preço</td>
+                    <td>Quantidade</td>
+                    <td>Ações</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for e in estoque %}
+                    <tr>
+                        <td>{{ e[0] }}</td>
+                        <td>{{ e[1] }}</td>
+                        <td>{{ e[2] }}</td>
+                        <td>{{ e[3] }}</td>
+                        <td>{{ e[4] }}</td>
+                        <td>{{ e[5] }}</td>
+                        <td><a href="{{ e[0] }}/altera_produto" class="btn btn-secondary btn-xs">Alterar</a> &nbsp
+                            <a href="{{ e[0] }}/remove_produto" onclick="return confirm('Deseja excluir
+                             este registro?')" class="btn btn-danger btn-xs">Excluir</a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}
