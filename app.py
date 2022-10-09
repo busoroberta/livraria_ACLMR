@@ -8,7 +8,7 @@ app.secret_key = 'impacta'
 
 # variável conexão com db
 con = mysql.connector.connect(host="localhost", database="livraria_aclmr",
-                              user="root", password="BusoRoberta")
+                              user="root", password="**********")
 
 cursor = con.cursor()   # cursor para executar os comandos para o db
 
