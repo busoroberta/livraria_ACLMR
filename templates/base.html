@@ -7,6 +7,7 @@
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
           crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr" crossorigin="anonymous">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,7 +25,7 @@
               <a class="nav-link" href="{{url_for('contato')}}">Contato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Realize seu pedido</a>
+              <a class="nav-link" href="{{url_for('produtos')}}">Produtos</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,6 +41,10 @@
                 <li><a class="dropdown-item" href="{{url_for('consulta_clientes')}}">Consulta Clientes</a></li>
                 <li><a class="dropdown-item" href="#">Relatório de Vendas</a></li>
               </ul>
+            </li>
+
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{url_for('pedido')}}">Seu Pedido</a>
             </li>
 
           </ul>

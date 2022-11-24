@@ -8,7 +8,7 @@ app.secret_key = 'impacta'
 
 # variável conexão com db
 con = mysql.connector.connect(host="localhost", database="livraria_aclmr",
-                              user="root", password="**********")
+                              user="root", password="BusoRoberta")
 
 cursor = con.cursor()   # cursor para executar os comandos para o db
 
@@ -93,13 +93,20 @@ def altera_produto(id):
     comando = f'SELECT * FROM cadastro_livro WHERE id_livro = {id}'
     cursor.execute(comando)
     resultado = (cursor.fetchone())
-    if request.method == 'POST':
+
+    if request.method == ['POST']:
         nome = request.form['nome']
         autor = request.form['autor']
         editora = request.form['editora']
         preco = request.form['preco']
         quantidade = request.form['quantidade']
-        return redirect(url_for('consulta_estoque_total'))
+
+        update = f'UPDATE cadatro_livro SET nome_livro = "{nome}", \
+                autor_livro = "{autor}", editora_livro = "{editora}"\
+                preco_livro = {preco}, qtidade_livro = {quantidade} WHERE id_livro = {id}'
+        cursor.execute(update)
+        con.commit()
+
     return render_template("altera_produto.html", resultado=resultado)
 
 @app.route('/<id>/remove_produto')
@@ -181,11 +188,36 @@ def add_data():   # função para receber os dados da pág cadastro_livros
                                                     "{editora}",{preco}, {quantidade})'
     cursor.execute(comando)   # executa o comando SQL acima
     con.commit()   # edita o db
+
+    livro_incluido = (f'SELECT * FROM cadastro_livro WHERE \
+     id_livro = (select max(id_livro) from cadastro_livro)')
+
+    cursor.execute(livro_incluido)
+    livro = (cursor.fetchone())
+
+    print(livro)
+
+    arquivo = request.files['arquivo']
+    arquivo.save(f'static/uploads/{livro[0]}.jpg')
+
     flash('Produto incluído com sucesso')
     return redirect(url_for('cadastro_produtos'))
 
 
 # resultado = cursor.fetchall() # ler o db
+
+@app.route("/produtos")
+def produtos():
+    comando = f'SELECT * FROM cadastro_livro'
+    cursor.execute(comando)
+    resultado = (cursor.fetchall())
+    return render_template("produtos.html", estoque=resultado)
+
+
+@app.route("/pedido")
+def pedido():
+    return render_template("pedido.html")
+
 
 
 if __name__ == "__main__":    # instrução para rodar a página quando for "main"
@@ -195,4 +227,3 @@ cursor.close()   # encerrar a conexão
 con.close()
 
 debug = True
-

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+
+
+    .img {
+        max-width:300px;
+        max-height:250px;
+        width: auto;
+        height: auto;
+    }
+
+    .produto {
+    display: inline-block;
+    border-top: none;
+    padding-top: 0;
+    }
+
+    .prod{
+   flex: 1; /*distribui as 3 divs dentro do conteiner com larguras iguais*/
+   margin: 5px; /*coloca uma margem entre elas*/
+   text-align: center;
+}
+
+    .prod img{
+   max-width: 100%;
+}
+
+</style>
+
+        {% for e in estoque %}
+
+            <div class="produto prod">
+        <span class="img prod">
+            <h3>{{ e[1] }}</h3>
+            <img src="../static/uploads/{{ e[0] }}.jpg" class="img"alt=" title="{{ e[1] }}" >
+            <p>
+                texto abaixo
+            </p>
+        </span>
+
+
+</div>
+        {% endfor %}
+
+
+
+{% endblock %}
